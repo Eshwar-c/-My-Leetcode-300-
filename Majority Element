@@ -1,0 +1,23 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+       int count  = 0;
+       int candidate  = 0;
+       for(int i: nums){
+         if(count ==0){
+            candidate = i;
+         }
+         if(i == candidate){
+            count++;
+         }
+         else{
+            count --;
+         }
+       }
+       return candidate ;
+    }
+}
+
+Notes 
+
+1.Use a counter and a candidate; if the counter is 0, choose the current element as the candidate.
+2.Increment the counter if the current element matches the candidate; otherwise, decrement it — the final candidate is the majority element.
