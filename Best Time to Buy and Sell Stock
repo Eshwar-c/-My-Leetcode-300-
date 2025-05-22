@@ -1,0 +1,20 @@
+Track the minimum price (buy) seen so far as you iterate through the array.
+
+At each step, calculate potential profit and update maxProfit if it's higher than the previous maximum.
+
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        int maxProfit  = 0;
+        int buy =prices[0];
+        for(int  i =1;i<  prices.length;i++){
+            if(prices[i] >  buy){
+                int profit  =  prices[i] - buy;
+                maxProfit =  Math.max(profit , maxProfit);
+            }
+            buy =  Math.min(buy , prices[i]);
+
+        }
+        return maxProfit;
+    }
+}
