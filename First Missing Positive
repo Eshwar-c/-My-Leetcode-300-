@@ -1,0 +1,23 @@
+class Solution {
+    public int firstMissingPositive(int[] nums) {
+        HashSet<Integer> set  =  new HashSet<>();
+        int ans = 0;
+        int n = nums.length;
+        int big  = 0 ; 
+        for(int i : nums){
+           set.add(i); 
+           big  = Math.max(i , big);
+        }
+        for(int i = 1 ; i <= n ; i++ ){
+            if(!set.contains(i)){
+                ans = i;
+                break;
+            }
+        }
+        if(ans == 0){
+            return big + 1;
+        } else {
+            return ans;
+        }
+    }
+}
